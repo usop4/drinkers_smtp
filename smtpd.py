@@ -75,6 +75,7 @@ import asynchat
 from subprocess import Popen, PIPE
 
 __all__ = ["SMTPServer","DebuggingServer","PureProxy","MailmanProxy"]
+__cmd__ = ["echo","Hello"]
 
 program = sys.argv[0]
 __version__ = 'Python SMTP proxy version 0.2'
@@ -168,7 +169,7 @@ class SMTPChannel(asynchat.async_chat):
 
             # add stupid header by t.uehara
             val = ""
-            p = Popen(["echo","Hello"], stdout=PIPE)
+            p = Popen(__cmd__, stdout=PIPE)
             while 1:
                 c = p.stdout.read(1)
                 if not c:
