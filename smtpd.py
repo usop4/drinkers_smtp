@@ -71,6 +71,8 @@ import time
 import socket
 import asyncore
 import asynchat
+# add by t.uehara
+from subprocess import Popen, PIPE
 
 __all__ = ["SMTPServer","DebuggingServer","PureProxy","MailmanProxy"]
 
@@ -163,7 +165,17 @@ class SMTPChannel(asynchat.async_chat):
             # Remove extraneous carriage returns and de-transparency according
             # to RFC 821, Section 4.5.2.
             data = []
-            data.append("X-Deisui: 1")
+
+            # add stupid header by t.uehara
+            val = ""
+            p = Popen(["echo","Hello"], stdout=PIPE)
+            while 1:
+                c = p.stdout.read(1)
+                if not c:
+                    break
+                val = val + c
+            data.append("X-Deisui: "+val.rstrip())
+
             for text in line.split('\r\n'):
                 if text and text[0] == '.':
                     data.append(text[1:])
