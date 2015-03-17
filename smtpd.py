@@ -169,6 +169,7 @@ class SMTPChannel(asynchat.async_chat):
             # Remove extraneous carriage returns and de-transparency according
             # to RFC 821, Section 4.5.2.
             data = []
+            data.append("X-Deisui: 1")
             for text in line.split('\r\n'):
                 if text and text[0] == '.':
                     data.append(text[1:])
