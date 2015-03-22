@@ -75,7 +75,7 @@ import asynchat
 from subprocess import Popen, PIPE
 
 __all__ = ["SMTPServer","DebuggingServer","PureProxy","MailmanProxy"]
-__cmd__ = ["echo","Hello"]
+__cmd__ = ["python","arduino.py"]
 
 program = sys.argv[0]
 __version__ = 'Python SMTP proxy version 0.2'
