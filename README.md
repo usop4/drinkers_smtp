@@ -2,6 +2,9 @@
 
 smtp relay with alcohol sensor
 
+https://deisui.amebaownd.com/posts/33866
+
+
 ## Description
 
 drinkers_smtp run as smtpd and insert stupid header into email.
@@ -21,7 +24,3 @@ Download smtpd.py and run
 
 Configure your email client to connect localhost:8025 and send mail.
 
-## Link
-
-酒を飲みながらメール送信すると酔い具合がメールヘッダに記録されるリレーサーバ
-https://deisui.amebaownd.com/posts/33866
